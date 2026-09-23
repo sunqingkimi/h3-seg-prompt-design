@@ -1,0 +1,7 @@
+interface:
+  display_name: "Theodore导播台H3分段提示词生成"
+  short_description: "将长视频拆成H3可生成分镜并编写素材映射与分段提示词"
+  default_prompt: "Use $h3-seg-prompt-design to plan a long H3 video, lock its reference assets, design 5–15 second segments, and write compliant prompts."
+
+policy:
+  allow_implicit_invocation: true
