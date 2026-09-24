@@ -3,7 +3,7 @@ name: h3-seg-prompt-design
 description: 为“噜噜和噜妹”及相近Q版3D动画短视频提供从参考图与剧情概要到剧情节拍、分镜、台词、5–15秒分段H3提示词和Director配置校验的完整工作流。保留素材锁定、连续性、对白、分段与导出校验能力；当用户提供角色参考图、剧情概要、总时长并希望生成多段H3视频提示词时使用。
 metadata:
   short-description: Lولو/噜妹 3D cartoon short-video director and H3 segmented prompt builder
-  version: 2.0.0-cartoon-specialized
+  version: 2.1.0-cartoon-specialized
 ---
 
 # 噜噜和噜妹 3D 动画短视频导演 Skill
@@ -146,9 +146,10 @@ metadata:
 ```powershell
 python scripts/export_director_plan.py "<视频项目文件夹>"
 python scripts/validate_project.py "<视频项目文件夹>"
+python scripts/check_anchors.py "<视频项目文件夹>"
 ```
 
-先修复错误，再报告警告。空素材路径必须明确告知用户：Director配置可导入，但不能直接执行，需在导播台补充路径或上传素材。
+先修复错误，再报告警告。`check_anchors.py` 审计人物/道具锚点是否在提示词阶段写全（座位绑定、区分物、道具总数锁、否定锁、逐镜Subject引用；未定义的Subject直接报错）。空素材路径必须明确告知用户：Director配置可导入，但不能直接执行，需在导播台补充路径或上传素材。
 
 ## 输出顺序
 
@@ -184,3 +185,4 @@ python scripts/validate_project.py "<视频项目文件夹>"
 - `assets/H3分镜提示词模板.md`
 - `scripts/export_director_plan.py`
 - `scripts/validate_project.py`
+- `scripts/check_anchors.py`
